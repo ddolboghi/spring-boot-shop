@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <table border="1">
+        <thead>
+        <tr>
+            <td>번호</td>
+            <td>상품명</td>
+            <td>상품 설명</td>
+            <td>가격</td>
+            <td>상품 등록일</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="itemDto, status:${itemDtoList}">
+    <!--        <th:block th:if="${status.even}">-->
+    <!--            <td th:text="${status.index}"></td>-->
+    <!--            <td th:text="${itemDto.itemName}"></td>-->
+    <!--            <td th:text="${itemDto.itemDetail}"></td>-->
+    <!--            <td th:text="${itemDto.price}"></td>-->
+    <!--            <td th:text="${itemDto.regTime}"></td>-->
+    <!--        </th:block>-->
+    <!--        <td th:unless="${status.even}" th:text="index"></td>-->
+            <td th:switch="${status.even}">
+                <span th:case=true>짝수</span>
+                <span th:case=false>홀수</span>
+            </td>
+            <td th:text="${itemDto.itemName}"></td>
+            <td th:text="${itemDto.itemDetail}"></td>
+            <td th:text="${itemDto.price}"></td>
+            <td th:text="${itemDto.regTime}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <div>
+        <a th:href="@{/thymeleaf/ex01}">ex01페이지로 이동</a>
+    </div>
+    <div>
+        <a th:href="@{https://www.thymeleaf.org/}">thymeleaf</a>
+    </div>
+    <div>
+        <a th:href="@{/thymeleaf/ex03(param1='ex02로부터 온 파라미터 데이터1', param2='ex02로부터 온 파라미터 데이터2')}">thymeleaf 파라미터 전달</a>
+    </div>
+</body>
+</html>
