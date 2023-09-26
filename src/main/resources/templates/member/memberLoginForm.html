@@ -15,7 +15,7 @@ layout:decorate="~{layouts/layout1}">
         </div>
         <p th:if="${loginErrorMsg}" th:text="${loginErrorMsg}" class="error"></p>
         <button>LOG IN</button>
-        <button onclick="location.href='/members/new'">SIGN UP</button>
+        <button><a href="/members/new">SIGN UP</a></button>
     </form>
 </div>
 
